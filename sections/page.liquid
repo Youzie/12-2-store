@@ -24,7 +24,7 @@
       {%- if section.settings.page.title != blank -%}
         {{ section.settings.page.title | escape }}
       {%- else -%}
-       ここが変わります。
+        {{ 'sections.page.title' | t }}
       {%- endif -%}
     </h2>
     <div class="rte">

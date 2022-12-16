@@ -25,10 +25,20 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "f041c394-916b-483a-bd5a-0d8173b688df": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% for i in(1..100) %}\n{% assign bonzo = i | modulo: 15 %}\n{% assign buzz = i | modulo: 5 %}\n{% assign fizz = i | modulo: 3 %}\n{% if fizz == 0 and buzz == 0 %}\nbonzo\n{% elsif fizz == 0 %}\nfizz\n{% elsif buzz == 0 %}\nbuzz\n\n{% else %}\n{{ i }}\n{% endif %}\n{% endfor %}",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "product-grid",
+    "f041c394-916b-483a-bd5a-0d8173b688df"
   ]
 }
