@@ -643,6 +643,17 @@
                             {{ 'products.product.sold_out' | t }}
                           {%- endif -%}
                         </span>
+                        <span>
+                          {% assign seconds = 7 | times: 24 | times: 60 | times: 60 %}
+                          {%  assign start_time = date: '2022-12-24' %}
+                          {% assign now_time = 'now' | date: '%s' %}
+                          {% assign time_lag = now_time | minus: start_time %}
+                          {% if time_lag > 0 %}
+                            {{ ◯◯日からご購入できます }}
+                          {%- else -%}
+                            {{ 'products.product.add_to_cart' }}
+                          {%- endif -%}
+                        </span>
                         <div class="loading-overlay__spinner hidden">
                           <svg
                             aria-hidden="true"
