@@ -334,7 +334,12 @@
             </div>
 
             <div>
-              {{ product.metafields.custom.date }}
+              {{ product.metafields.custom.date_ }}
+            </div>
+
+            <div>
+              {% assign seconds = 7 | times: 24 | times: 60 | times: 60 %}
+              {{ 'today' | date: '%s' | plus: seconds | date: '%Y-%m-%d' }}
             </div>
             
             {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
@@ -622,7 +627,12 @@
                       <button
                         type="submit"
                         name="add"
-                        class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                        class="product-form__submit button button--full-width 
+                        {% if block.settings.show_dynamic_checkout %}
+                        button--secondary
+                        {% else %}
+                        button--primary
+                        {% endif %}"
                         {% if product.selected_or_first_available_variant.available == false %}
                         disabled
                         {% endif %}>
